@@ -30,11 +30,7 @@ def scrape_ebay(keyword):
             num_watchers = ''.join(filter(str.isdigit, watchers.text))
             results.append((int(num_watchers), title.text, price.text, link["href"]))
 
-    for count, title, price, url in sorted(results, reverse=True)[:MAX_RESULTS]:
-        msg = f"👀 {count} watchers\n📦 {title}\n💰 {price}\n🔗 {url}"
-        send_telegram(msg)
-
-  top = sorted(results, reverse=True)[:MAX_RESULTS]
+    top = sorted(results, reverse=True)[:MAX_RESULTS]
 
     if not top:
         send_telegram("🤖 Bot ran, but found no listings with watcher counts today.")
