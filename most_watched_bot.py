@@ -41,3 +41,6 @@ def scrape_ebay(keyword):
 
 for kw in KEYWORDS:
     scrape_ebay(kw)
+
+# Force a test message just to confirm Telegram works
+send_telegram("✅ Test: Bot completed run. Telegram is working.")
